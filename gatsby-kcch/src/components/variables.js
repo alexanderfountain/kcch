@@ -1,0 +1,5 @@
+export const mobileWidth = "700px"
+export const tabletWidth = "800px"
+export const desktopWidth = "1080px"
+export const black = "#222222"
+export const blue = "#2985a7"
