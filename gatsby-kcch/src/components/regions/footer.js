@@ -58,7 +58,7 @@ const FooterStyle = styled.footer`
 export const Footer = () => {
   const data = useStaticQuery(graphql`
     query {
-      logo: file(relativePath: { eq: "logo.png" }) {
+      logo: file(relativePath: { eq: "kcchlogo.png" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
@@ -105,18 +105,16 @@ export const Footer = () => {
     <FooterStyle>
       <Container>
         <div className="footer-links">
-          <Link to="/contact">CONTACT</Link>
-          <Link to="/team">TEAM</Link>
-          <Link to="/privacy">PRIVACY-EN COOKIEVERKLARING</Link>
+          <Link to="/contact-us">CONTACT</Link>
         </div>
-        <div className="footer-social">
+        {/* <div className="footer-social">
           <ul>
             <li className="email icons">
               <a href="mailto:contact@spaans-spaans.com" target="_blank">
                 <Img fixed={email} />
               </a>
-            </li>
-            <li className="facebook icons">
+            </li> */}
+        {/* <li className="facebook icons">
               <a
                 target="_blank"
                 href="https://www.facebook.com/legalexpertsforthedigitalyou"
@@ -136,9 +134,9 @@ export const Footer = () => {
               >
                 <Img fixed={linkedin} />
               </a>
-            </li>
-          </ul>
-        </div>
+            </li> */}
+        {/* </ul>
+        </div> */}
         <div className="footer-logo">
           <em>Spaans&Spaans</em>
         </div>

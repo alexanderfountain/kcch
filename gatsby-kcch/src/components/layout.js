@@ -13,8 +13,6 @@ import styled from "styled-components"
 import * as variable from "./variables"
 import Footer from "../components/regions/footer"
 import "./layout.css"
-import detectBrowserLanguage from "detect-browser-language"
-import ThemeContext from "../context/ThemeContext"
 
 const GlobalStyles = styled.div`
   a {
@@ -33,32 +31,16 @@ const Layout = ({ children }) => (
               name
               link
             }
-            dutchmainmenu {
-              name
-              link
-              submenu {
-                name
-                link
-              }
-            }
           }
         }
       }
     `}
     render={data => (
-      <ThemeContext.Consumer>
-        {theme => (
-          <GlobalStyles>
-            {theme.english ? (
-              <Header mainmenu={data.site.siteMetadata.mainmenu} />
-            ) : (
-              <Header mainmenu={data.site.siteMetadata.dutchmainmenu} />
-            )}
-            <div className="main">{children}</div>
-            <Footer></Footer>
-          </GlobalStyles>
-        )}
-      </ThemeContext.Consumer>
+      <GlobalStyles>
+        <Header mainmenu={data.site.siteMetadata.mainmenu} />
+        <div className="main">{children}</div>
+        <Footer></Footer>
+      </GlobalStyles>
     )}
   />
 )

@@ -4,8 +4,6 @@ import styled from "styled-components"
 import PortableText from "@sanity/block-content-to-react"
 import BackgroundImage from "gatsby-background-image"
 import Container from "../container"
-import NewsTeaser from "../entities/news/newsTeaser"
-import TestimonialTeaser from "../entities/testimonial/testimonialTeaser"
 import AliceCarousel from "react-alice-carousel"
 import "react-alice-carousel/lib/alice-carousel.css"
 
@@ -86,10 +84,10 @@ class SectionEntityListTemplate extends React.Component {
                       >
                         {data.news.nodes.map((newsitem, index) => (
                           <div className="teaser">
-                            <NewsTeaser
+                            {/* <NewsTeaser
                               key={index}
                               news={newsitem}
-                            ></NewsTeaser>
+                            ></NewsTeaser> */}
                           </div>
                         ))}
                       </AliceCarousel>
@@ -107,7 +105,7 @@ class SectionEntityListTemplate extends React.Component {
                     >
                       {data.news.nodes.map((newsitem, index) => (
                         <div className="teaser">
-                          <NewsTeaser key={index} news={newsitem}></NewsTeaser>
+                          {/* <NewsTeaser key={index} news={newsitem}></NewsTeaser> */}
                         </div>
                       ))}
                     </AliceCarousel>
@@ -136,10 +134,10 @@ class SectionEntityListTemplate extends React.Component {
                       >
                         {data.testimonial.nodes.map((testitem, index) => (
                           <div className="teaser">
-                            <TestimonialTeaser
+                            {/* <TestimonialTeaser
                               key={index}
                               testimonial={testitem}
-                            ></TestimonialTeaser>
+                            ></TestimonialTeaser> */}
                           </div>
                         ))}
                       </AliceCarousel>
@@ -157,10 +155,10 @@ class SectionEntityListTemplate extends React.Component {
                     >
                       {data.testimonial.nodes.map((testitem, index) => (
                         <div className="teaser">
-                          <TestimonialTeaser
+                          {/* <TestimonialTeaser
                             key={index}
                             testimonial={testitem}
-                          ></TestimonialTeaser>
+                          ></TestimonialTeaser> */}
                         </div>
                       ))}
                     </AliceCarousel>

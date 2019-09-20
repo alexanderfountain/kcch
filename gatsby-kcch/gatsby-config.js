@@ -6,80 +6,34 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: `Spaans & Spaans`,
-    description: `Spaans gatsby site.`,
+    title: `KCCH`,
+    description: `KCCH gatsby site.`,
     author: `Alexander Fountain`,
-    url: `https://spaans.sanity.com`,
-    dutchmainmenu: [
-      {
-        name: "Home",
-        link: "/",
-      },
-      {
-        name: "Diensten",
-        link: "/diensten",
-        submenu: [
-          {
-            name: "Wat wij aanbieden",
-            link: "/diensten",
-          },
-          {
-            name: "ICT-RECHT",
-            link: "/diensten/ictrecht",
-          },
-          {
-            name: "PRIVACY",
-            link: "/diensten/privacy",
-          },
-          {
-            name: "AUTEURSRECHT",
-            link: "/diensten/auteursrecht",
-          },
-          {
-            name: "CONTRACTEN",
-            link: "/diensten/contracten",
-          },
-          {
-            name: "JURIDISCH VERTALER",
-            link: "/diensten/juridisch-vertaler",
-          },
-        ],
-      },
-      {
-        name: "ICT-JURISTEN",
-        link: "/ict-juristen",
-      },
-      {
-        name: "STARTERSPAKKET",
-        link: "/starterspakket-ondernemers",
-      },
-      {
-        name: "BLOGS",
-        link: "/blogs",
-      },
-      {
-        name: "CONTACT",
-        link: "/contact",
-        submenu: [
-          {
-            name: "CONTACT",
-            link: "/contact/juridisch/advies",
-          },
-          {
-            name: "ONS TEAM",
-            link: "/about-us",
-          },
-        ],
-      },
-    ],
+    url: `https://kcch.sanity.com`,
     mainmenu: [
       {
-        name: "About",
-        link: "/about",
+        name: "Gallery",
+        link: "/gallery",
       },
       {
-        name: "Contact",
-        link: "/contact",
+        name: "Contact Us",
+        link: "/contact-us",
+      },
+      {
+        name: "What’s Included",
+        link: "/whats-included-affordable-apartments",
+      },
+      {
+        name: "FAQs",
+        link: "/faqs-corporate-housing-options",
+      },
+      {
+        name: "Blog",
+        link: "/kansas-city-corporate-housing-blog",
+      },
+      {
+        name: "Get Started",
+        link: "/get-started-kansas-city-corporate-housing",
       },
     ],
   },
@@ -113,7 +67,7 @@ module.exports = {
     {
       resolve: "gatsby-source-sanity",
       options: {
-        projectId: "1pifcwbd",
+        projectId: "iqjqw8ps",
         dataset: "production",
         watchMode: true,
         overlayDrafts: true,
