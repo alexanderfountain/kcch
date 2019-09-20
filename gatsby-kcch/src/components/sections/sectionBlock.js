@@ -12,7 +12,14 @@ import linkedin from "../../images/linkedin.png"
 import Img from "gatsby-image"
 import * as variable from "../variables"
 
-const SectionBlockStyle = styled.div``
+const SectionBlockStyle = styled.div`
+  #home-hero {
+    h1 {
+      color: white;
+      text-align: center;
+    }
+  }
+`
 
 const serializers = {
   types: {
