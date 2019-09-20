@@ -137,9 +137,7 @@ export const Footer = () => {
             </li> */}
         {/* </ul>
         </div> */}
-        <div className="footer-logo">
-          <em>Spaans&Spaans</em>
-        </div>
+        <div className="footer-logo"></div>
       </Container>
     </FooterStyle>
   )
