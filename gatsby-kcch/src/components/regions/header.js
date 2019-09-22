@@ -30,6 +30,12 @@ const HeaderStyle = styled.header`
         position: relative;
         &:last-child {
           margin-right: 0px;
+          a {
+            background-color: #a3013c;
+            border-radius: 50px 50px 50px 50px;
+            padding: 12px 30px 12px 30px;
+            color: white;
+          }
         }
         &.icons {
           margin-right: 10px;
@@ -37,12 +43,9 @@ const HeaderStyle = styled.header`
         a {
           color: ${variable.gray};
           text-decoration: none;
-          font-size: 11px;
-          text-transform: uppercase;
-          font-family: "Lato", sans-serif;
+          font-size: 18px;
           font-display: fallback;
-          font-weight: 700;
-          letter-spacing: 0.14em;
+          font-weight: 400;
           display: flex;
           align-items: center;
         }

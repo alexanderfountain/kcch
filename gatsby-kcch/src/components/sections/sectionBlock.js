@@ -18,6 +18,96 @@ const SectionBlockStyle = styled.div`
       color: white;
       text-align: center;
     }
+    .group {
+      div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        color: white;
+        font-size: 30px;
+        font-weight: 500;
+        p:nth-child(1) {
+          margin-right: 50px;
+          a {
+            background-color: white;
+            color: ${variable.red};
+            font-weight: 500;
+            padding: 15px 30px;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            font-size: 16px;
+          }
+        }
+        p:nth-child(3) {
+          margin-left: 50px;
+          a {
+            background-color: ${variable.red};
+            color: white;
+            font-weight: 500;
+            padding: 15px 30px;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+  #rep-contact {
+    background-image: linear-gradient(180deg, #ba012f 0%, #630018 100%);
+    color: white;
+    .section-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      h2 {
+        width: calc(100% / 2);
+        margin: 0px;
+      }
+      form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: calc(100% / 2 - 20px);
+        input {
+          width: 30%;
+        }
+        select {
+          width: calc(40% - 20px);
+        }
+        button {
+          width: 30%;
+        }
+      }
+    }
+  }
+  #welcome,
+  #comfort,
+  #customer,
+  #flexibility,
+  #where-work {
+    .section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      img {
+        width: calc(50% - 15px);
+      }
+      .group {
+        width: calc(50% - 15px);
+      }
+    }
+  }
+  #welcome,
+  #customer {
+    background-color: rgba(239, 239, 239, 0.76);
+  }
+  #features,
+  #flex-lease {
+    background-image: linear-gradient(180deg, #ba012f 0%, #630018 100%);
+    color: white;
   }
 `
 
@@ -75,15 +165,14 @@ class SectionBlockTemplate extends React.Component {
               strength={300}
             >
               <Container className="section-container">
-                {console.log(section)}
                 <PortableText
                   className="section"
                   serializers={serializers}
                   blocks={section._rawSectionblock}
                 />
-                {section.sectionid == "contact" && (
+                {section.sectionid == "rep-contact" && (
                   <form
-                    name="contact-home"
+                    name={section.sectionid}
                     method="post"
                     netlify-honeypot="bot-field"
                     data-netlify="true"
@@ -91,46 +180,14 @@ class SectionBlockTemplate extends React.Component {
                     <input
                       type="hidden"
                       name="form-name"
-                      value="contact-home"
+                      value={section.sectionid}
                     />
                     <p hidden>
-                      {" "}
                       <label htmlFor="bot-field">
-                        Don’t fill this out: <input name="bot-field" />{" "}
-                      </label>{" "}
-                    </p>
-                    <div className="form-group-names">
-                      <div class="form-group">
-                        <label for="name" class="lb-name">
-                          First Name *
-                        </label>
-                        <input
-                          type="text"
-                          name="name"
-                          id="name"
-                          class="form-control"
-                          data-required="true"
-                          data-interactive="true"
-                        />
-                      </div>
-                      <div class="form-group">
-                        <label for="surname" class="lb-surname">
-                          Last Name *
-                        </label>
-                        <input
-                          type="text"
-                          name="surname"
-                          id="surname"
-                          class="form-control"
-                          data-required="true"
-                          data-interactive="true"
-                        />
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="email" class="lb-email">
-                        Email *
+                        Don’t fill this out: <input name="bot-field" />
                       </label>
+                    </p>
+                    <div class="form-group">
                       <input
                         type="email"
                         name="email"
@@ -138,31 +195,7 @@ class SectionBlockTemplate extends React.Component {
                         class="form-control"
                         data-required="true"
                         data-interactive="true"
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label for="phone" class="lb-phone">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        id="phone"
-                        class="form-control"
-                        data-required="false"
-                        data-interactive="true"
-                      />
-                    </div>
-                    <div class="form-group text">
-                      <label for="textarea" class="lb-message">
-                        Message*
-                      </label>
-                      <textarea
-                        name="textarea"
-                        id="textarea"
-                        class="textarea form-control"
-                        data-required="true"
-                        data-trim="true"
+                        placeholder="email"
                       />
                     </div>
                     <div>
@@ -176,12 +209,50 @@ class SectionBlockTemplate extends React.Component {
             </Parallax>
           ) : (
             <Container className="section-container">
-              {/* {console.log(section)} */}
               <PortableText
                 className="section"
                 serializers={serializers}
                 blocks={section._rawSectionblock}
               />
+              {section.sectionid == "rep-contact" && (
+                <form
+                  name={section.sectionid}
+                  method="post"
+                  netlify-honeypot="bot-field"
+                  data-netlify="true"
+                >
+                  <input
+                    type="hidden"
+                    name="form-name"
+                    value={section.sectionid}
+                  />
+                  <p hidden>
+                    <label htmlFor="bot-field">
+                      Don’t fill this out: <input name="bot-field" />
+                    </label>
+                  </p>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="form-control"
+                    data-required="true"
+                    data-interactive="true"
+                    placeholder="email"
+                  />
+                  <select name="type">
+                    <option value="General Information">
+                      General Information
+                    </option>
+                    <option value="Housing Quote">Housing Quote</option>
+                    <option value="Other">Other</option>
+                  </select>
+
+                  <button type="submit" class="btn btn-submit">
+                    Send Message
+                  </button>
+                </form>
+              )}
             </Container>
           )}
         </div>
