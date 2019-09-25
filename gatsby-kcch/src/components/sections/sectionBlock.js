@@ -109,6 +109,36 @@ const SectionBlockStyle = styled.div`
     background-image: linear-gradient(180deg, #ba012f 0%, #630018 100%);
     color: white;
   }
+  #features,
+  #flex-lease {
+    .section-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      .section {
+        width: calc(100% / 2 - 20px);
+      }
+      form {
+        width: calc(100% / 2 - 20px);
+        display: flex;
+        align-items: center;
+        select {
+          margin: 0px 20px;
+        }
+      }
+      a {
+        fill: #a3013c;
+        color: #a3013c;
+        background-color: #ffffff;
+        font-size: 16px;
+        padding: 15px 30px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        margin-top: 20px;
+        display: inline-block;
+      }
+    }
+  }
 `
 
 const serializers = {
@@ -154,6 +184,13 @@ const serializers = {
 class SectionBlockTemplate extends React.Component {
   render() {
     const { section } = this.props
+    if (
+      section.sectionid == "flex-lease" ||
+      section.sectionid == "rep-contact" ||
+      section.sectionid == "features"
+    ) {
+      var form = true
+    }
     return (
       <SectionBlockStyle>
         <div id={section.sectionid}>
@@ -214,7 +251,7 @@ class SectionBlockTemplate extends React.Component {
                 serializers={serializers}
                 blocks={section._rawSectionblock}
               />
-              {section.sectionid == "rep-contact" && (
+              {form == true && (
                 <form
                   name={section.sectionid}
                   method="post"
