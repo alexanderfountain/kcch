@@ -8,6 +8,7 @@ import BackgroundImage from "gatsby-background-image"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import ThemeContext from "../../context/ThemeContext"
+import MobileMenu from "../mobilemenu"
 
 const HeaderStyle = styled.header`
   padding: 10px 0px;
@@ -15,16 +16,18 @@ const HeaderStyle = styled.header`
     display: flex;
     justify-content: space-between;
     .logo {
-      max-width: 245px;
+      max-width: 215px;
       flex-grow: 1;
     }
     .main-menu {
       padding: 0px;
       margin: 0px;
       display: flex;
+      width: calc(100% - 225px);
+      justify-content: flex-end;
       li {
         list-style: none;
-        margin-right: 40px;
+        margin-right: 20px;
         display: flex;
         align-items: center;
         position: relative;
@@ -35,6 +38,7 @@ const HeaderStyle = styled.header`
             border-radius: 50px 50px 50px 50px;
             padding: 12px 30px 12px 30px;
             color: white;
+            font-size: 16px;
           }
         }
         &.icons {
@@ -86,6 +90,29 @@ const HeaderStyle = styled.header`
       }
     }
   }
+  @media (max-width: ${variable.tabletWidth}) {
+    .header-menu-logo {
+      .logo {
+        max-width: 190px;
+      }
+      .main-menu {
+        width: calc(100% - 210px);
+        li {
+          margin-right: 15px;
+          a {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: ${variable.mobileWidth}) {
+    .header-menu-logo {
+      .main-menu {
+        display: none;
+      }
+    }
+  }
 `
 
 export const Header = ({ mainmenu }) => {
@@ -126,6 +153,7 @@ export const Header = ({ mainmenu }) => {
               </li>
             ))}
           </ul>
+          <MobileMenu></MobileMenu>
         </Container>
       </div>
     </HeaderStyle>

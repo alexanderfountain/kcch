@@ -39,7 +39,8 @@ export default {
         list: [
           { title: "News", value: "news" },
           { title: "Blog", value: "blog" },
-          { title: "Testimonial", value: "testimonial" }
+          { title: "Testimonial", value: "testimonial" },
+          { title: "Gallery", value: "gallery" }
         ]
       }
     },

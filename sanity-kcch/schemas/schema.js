@@ -12,6 +12,7 @@ import news from "./news";
 import group from "./group";
 import testimonial from "./testimonial";
 import imagelink from "./imagelink";
+import gallery from "./gallery";
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -27,6 +28,7 @@ export default createSchema({
     sectionEntityList,
     group,
     testimonial,
-    imagelink
+    imagelink,
+    gallery
   ])
 });

@@ -13,7 +13,49 @@ import Img from "gatsby-image"
 import * as variable from "../variables"
 
 const SectionBlockStyle = styled.div`
-  #home-hero {
+  #ready {
+    background-image: linear-gradient(270deg, #0338a0 0%, #011c5b 100%);
+    h2 {
+      color: white;
+      text-align: center;
+    }
+    .group {
+      div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        color: white;
+        font-size: 30px;
+        font-weight: 500;
+        p:nth-child(1) {
+          margin-right: 50px;
+          a {
+            background-color: white;
+            color: ${variable.red};
+            font-weight: 500;
+            padding: 15px 30px;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            font-size: 16px;
+          }
+        }
+        p:nth-child(3) {
+          margin-left: 50px;
+          a {
+            background-color: ${variable.red};
+            color: white;
+            font-weight: 500;
+            padding: 15px 30px;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+  #home-hero,
+  #ready {
     h1 {
       color: white;
       text-align: center;
@@ -92,8 +134,15 @@ const SectionBlockStyle = styled.div`
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      img {
+      h2,
+      h3 {
+        margin-top: 0px;
+      }
+      .portable-image {
         width: calc(50% - 15px);
+        img {
+          max-width: 100%;
+        }
       }
       .group {
         width: calc(50% - 15px);
@@ -116,14 +165,22 @@ const SectionBlockStyle = styled.div`
       flex-wrap: wrap;
       justify-content: space-between;
       .section {
-        width: calc(100% / 2 - 20px);
+        width: calc(40%);
       }
       form {
-        width: calc(100% / 2 - 20px);
+        width: calc(60% - 20px);
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
         select {
-          margin: 0px 20px;
+          width: calc(100% / 3 - 10px);
+        }
+        button {
+          width: calc(100% / 3 - 10px);
+        }
+        input {
+          width: calc(100% / 3 - 10px);
         }
       }
       a {
@@ -139,6 +196,154 @@ const SectionBlockStyle = styled.div`
       }
     }
   }
+  @media (max-width: ${variable.tabletWidth}) {
+    #rep-contact {
+      .section-container {
+        flex-direction: column;
+        h2 {
+          width: 100%;
+          margin-bottom: 40px;
+          text-align: center;
+        }
+        form {
+          width: 100%;
+        }
+      }
+    }
+    #features,
+    #flex-lease {
+      .section-container {
+        flex-direction: column;
+        .section {
+          width: 100%;
+        }
+        form {
+          width: 100%;
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+  @media (max-width: ${variable.mobileWidth}) {
+    #home-hero,
+    #ready {
+      .group {
+        div {
+          flex-direction: column;
+          text-align: center;
+          p:nth-child(1) {
+            margin: 0px;
+          }
+          p:nth-child(3) {
+            margin: 0px;
+          }
+        }
+      }
+    }
+    #rep-contact {
+      .section-container {
+        form {
+          flex-direction: column;
+          input {
+            width: 100%;
+          }
+          button {
+            width: 100%;
+          }
+          select {
+            margin: 20px 0px;
+            width: 100%;
+          }
+        }
+      }
+    }
+    #welcome,
+    #comfort,
+    #customer,
+    #flexibility,
+    #where-work {
+      .section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        flex-direction: column;
+        .portable-image {
+          width: calc(100%);
+          margin-top: 40px;
+          img {
+            max-width: 100%;
+          }
+        }
+        .group {
+          width: calc(100%);
+        }
+      }
+    }
+    #features,
+    #flex-lease {
+      .section-container {
+        form {
+          input {
+            width: 100%;
+          }
+          button {
+            width: 100%;
+          }
+          select {
+            width: 100%;
+            margin: 20px 0px;
+          }
+        }
+      }
+    }
+    #comfort,
+    #flexibility {
+      .portable-image {
+        margin: 0px 0px 40px 0px;
+      }
+    }
+    .portable-image {
+      text-align: center;
+    }
+  }
+  #contact {
+    .flex-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    input {
+      background-color: #f2f2f2;
+      width: 100%;
+      padding: 30px 10px;
+    }
+    textarea {
+      background-color: #f2f2f2;
+      -webkit-appearance: none;
+      border: 0px;
+      padding: 30px 10px;
+      width: 100%;
+      height: 200px;
+      &::placeholder {
+        font-size: 16px;
+      }
+    }
+    .form-group {
+      width: calc(100% / 2 - 20px);
+      margin-bottom: 40px;
+    }
+    h1 {
+      text-align: center;
+    }
+    h2 {
+      text-align: center;
+    }
+    i {
+      width: 1em;
+      height: 1em;
+      color: white;
+    }
+  }
 `
 
 const serializers = {
@@ -150,7 +355,9 @@ const serializers = {
     ),
     image: props =>
       props.node.asset !== null && (
-        <img src={props.node.asset.url + "?w=700"} />
+        <div className="portable-image">
+          <img src={props.node.asset.url + "?w=700"} />
+        </div>
       ),
     blocks: props => (
       <div>
@@ -202,12 +409,59 @@ class SectionBlockTemplate extends React.Component {
               strength={300}
             >
               <Container className="section-container">
-                <PortableText
-                  className="section"
-                  serializers={serializers}
-                  blocks={section._rawSectionblock}
-                />
-                {section.sectionid == "rep-contact" && (
+                <div className="inner-section-container">
+                  <PortableText
+                    className="section"
+                    serializers={serializers}
+                    blocks={section._rawSectionblock}
+                  />
+                  {section.sectionid == "rep-contact" && (
+                    <form
+                      name={section.sectionid}
+                      method="post"
+                      netlify-honeypot="bot-field"
+                      data-netlify="true"
+                    >
+                      <input
+                        type="hidden"
+                        name="form-name"
+                        value={section.sectionid}
+                      />
+                      <p hidden>
+                        <label htmlFor="bot-field">
+                          Don’t fill this out: <input name="bot-field" />
+                        </label>
+                      </p>
+                      <div class="form-group">
+                        <input
+                          type="email"
+                          name="email"
+                          id="email"
+                          class="form-control"
+                          data-required="true"
+                          data-interactive="true"
+                          placeholder="email"
+                        />
+                      </div>
+                      <div>
+                        <button type="submit" class="btn btn-submit">
+                          Send Message
+                        </button>
+                      </div>
+                    </form>
+                  )}
+                </div>
+              </Container>
+            </Parallax>
+          ) : (
+            <Container className="section-container">
+              <PortableText
+                className="section"
+                serializers={serializers}
+                blocks={section._rawSectionblock}
+              />
+              {section.sectionid == "contact" && (
+                <div className="contacter">
                   <form
                     name={section.sectionid}
                     method="post"
@@ -224,15 +478,59 @@ class SectionBlockTemplate extends React.Component {
                         Don’t fill this out: <input name="bot-field" />
                       </label>
                     </p>
+                    <div className="flex-group">
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          name="fname"
+                          id="fname"
+                          class="form-control"
+                          data-required="true"
+                          data-interactive="true"
+                          placeholder="First Name"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          name="lname"
+                          id="lname"
+                          class="form-control"
+                          data-required="true"
+                          data-interactive="true"
+                          placeholder="Last Name"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          name="cell"
+                          id="cell"
+                          class="form-control"
+                          data-interactive="true"
+                          placeholder="Phone Number"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="email"
+                          name="email"
+                          id="email"
+                          class="form-control"
+                          data-required="true"
+                          data-interactive="true"
+                          placeholder="Email"
+                        />
+                      </div>
+                    </div>
                     <div class="form-group">
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
+                      <textarea
+                        type="textarea"
+                        name="message"
+                        id="message"
                         class="form-control"
-                        data-required="true"
                         data-interactive="true"
-                        placeholder="email"
+                        placeholder="Message"
                       />
                     </div>
                     <div>
@@ -241,16 +539,12 @@ class SectionBlockTemplate extends React.Component {
                       </button>
                     </div>
                   </form>
-                )}
-              </Container>
-            </Parallax>
-          ) : (
-            <Container className="section-container">
-              <PortableText
-                className="section"
-                serializers={serializers}
-                blocks={section._rawSectionblock}
-              />
+                  <div className="contact-info">
+                    <h4>CONTACT INFO</h4>
+                    <i class="fa fa-envelope" aria-hidden="true"></i>Email
+                  </div>
+                </div>
+              )}
               {form == true && (
                 <form
                   name={section.sectionid}

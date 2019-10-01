@@ -27,10 +27,10 @@ module.exports = {
         name: "FAQs",
         link: "/faqs-corporate-housing-options",
       },
-      {
-        name: "Blog",
-        link: "/kansas-city-corporate-housing-blog",
-      },
+      // {
+      //   name: "Blog",
+      //   link: "/kansas-city-corporate-housing-blog",
+      // },
       {
         name: "Get Started",
         link: "/get-started-kansas-city-corporate-housing",

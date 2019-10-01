@@ -10,7 +10,6 @@ const Container = styled.div`
   }
   @media (max-width: ${variable.mobileWidth}) {
     max-width: ${variable.mobileWidth};
-    padding: 0px 15px;
   }
 `
 

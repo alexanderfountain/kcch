@@ -13,7 +13,8 @@ import styled from "styled-components"
 import * as variable from "./variables"
 import Footer from "../components/regions/footer"
 import "./layout.css"
-
+import { PopupboxManager, PopupboxContainer } from "react-popupbox"
+import "react-popupbox/dist/react-popupbox.css"
 const GlobalStyles = styled.div`
   a {
     color: ${variable.blue};
@@ -37,9 +38,16 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <GlobalStyles>
+        <PopupboxContainer />
         <Header mainmenu={data.site.siteMetadata.mainmenu} />
         <div className="main">{children}</div>
         <Footer></Footer>
+        <link
+          rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+          crossorigin="anonymous"
+        />
       </GlobalStyles>
     )}
   />

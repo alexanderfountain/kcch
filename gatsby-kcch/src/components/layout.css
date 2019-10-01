@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 html {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
@@ -17,7 +20,7 @@ body {
   overflow-y: auto;
 }
 body .section-container {
-  padding: 50px 0px;
+  padding: 50px 20px;
 }
 h1,
 h2,
@@ -69,4 +72,69 @@ button {
   border-style: solid;
   border-width: 1px 1px 1px 1px;
   cursor: pointer;
+}
+@media (max-width: 800px) {
+  h1 {
+    font-size: 48px;
+  }
+  .section h2 {
+    margin-top: 0px;
+  }
+  .section h3 {
+    margin-top: 0px;
+  }
+}
+/* .slide-container {
+  width: 70%;
+  margin: auto;
+}
+
+h3 {
+  text-align: center;
+}
+
+.each-slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 300px;
+}
+
+.each-slide span {
+  padding: 20px;
+  font-size: 20px;
+  background: #efefef;
+  text-align: center;
+}
+
+.each-fade {
+  display: flex;
+}
+
+.each-fade .image-container {
+  width: 75%;
+  overflow: hidden;
+}
+
+.each-fade .image-container img {
+  width: 100%;
+}
+
+.each-fade h2 {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background: #adceed;
+} */
+.popupbox-wrapper {
+  width: 500px !important;
+  height: 400px !important;
+  max-width: 500px !important;
+  max-height: 400px !important;
+}
+.popupbox-wrapper img {
+  max-width: 100%;
 }

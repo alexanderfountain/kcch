@@ -65,6 +65,43 @@ export const query = graphql`
         url
       }
     }
+    gallery: allSanityGallery {
+      nodes {
+        title
+        image {
+          asset {
+            fluid(maxWidth: 450, maxHeight: 300) {
+              base64
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
+          }
+        }
+      }
+    }
+    large: allSanityGallery {
+      nodes {
+        title
+        image {
+          asset {
+            url
+            fluid(maxWidth: 850, maxHeight: 600) {
+              base64
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
+          }
+        }
+      }
+    }
     landing: allSanityLanding(filter: { id: { eq: $id } }) {
       nodes {
         title
@@ -116,6 +153,7 @@ class LandingPostTemplate extends React.Component {
   render() {
     const { post } = this.props
     const { data } = this.props
+    console.log(data)
     return (
       <Layout>
         <Helmet>
