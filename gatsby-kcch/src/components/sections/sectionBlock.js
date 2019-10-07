@@ -312,6 +312,17 @@ const SectionBlockStyle = styled.div`
       flex-wrap: wrap;
       justify-content: space-between;
     }
+    .contacter{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      form{
+        width:calc(65%);
+      }
+      .contact-info{
+        width:calc(35% - 40px);
+      }
+    }
     input {
       background-color: #f2f2f2;
       width: 100%;
@@ -344,9 +355,33 @@ const SectionBlockStyle = styled.div`
       color: white;
     }
   }
-`
+  #faq{
+    .group{
+      width:100%;
+      text-align:center;
+    }
+    .section{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+    }
+    .faq-section{
+    width:calc(100% / 2 - 40px);
+  }
+  .faq-title{
+    cursor:pointer;
+  }
+  .faq-copy{
+    /* display:none; */
+  }
+  }
 
+`
+// var openFaq = e => {
+//   console.log('faqclick')
+// }
 const serializers = {
+
   types: {
     code: props => (
       <pre data-language={props.node.language}>
@@ -375,6 +410,21 @@ const serializers = {
         <PortableText serializers={serializers} blocks={props.node.group} />
       </div>
     ),
+
+    faq: props => (
+
+      <div className="faq-section">
+                <h2 
+        className={props.node._key + " faq-title"} 
+        onClick={e => {
+          // var clickClass = e
+            // console.log(e.target.n);
+        }}>{props.node.title}</h2>
+        <div className={props.node._key + " faq-copy"}>
+        <PortableText serializers={serializers} blocks={props.node.copy} />
+        </div>
+      </div>
+    ),
     imagelink: props => (
       <div className="image-link">
         <div className="image-link-container">
@@ -389,6 +439,7 @@ const serializers = {
 }
 
 class SectionBlockTemplate extends React.Component {
+
   render() {
     const { section } = this.props
     if (
@@ -398,6 +449,7 @@ class SectionBlockTemplate extends React.Component {
     ) {
       var form = true
     }
+
     return (
       <SectionBlockStyle>
         <div id={section.sectionid}>
@@ -459,6 +511,7 @@ class SectionBlockTemplate extends React.Component {
                 className="section"
                 serializers={serializers}
                 blocks={section._rawSectionblock}
+                this={this}
               />
               {section.sectionid == "contact" && (
                 <div className="contacter">

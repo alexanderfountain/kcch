@@ -71,6 +71,11 @@ export default {
       title: "Image Link",
       name: "imagelink",
       type: "imagelink"
-    }
+    },
+    {
+      title: "FAQ",
+      name: "faq",
+      type: "faq"
+    },
   ]
 };

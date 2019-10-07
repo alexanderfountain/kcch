@@ -86,6 +86,7 @@ class GalleryTeaserTemplate extends React.Component {
   render() {
     const { gallery } = this.props
     const { large } = this.props
+    console.log(large)
     return (
       <GalleryTeaserStyle>
         <div

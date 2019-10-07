@@ -30,7 +30,6 @@ const serializers = {
       ),
     blocks: props => (
       <div>
-        {console.log(props)}
         <PortableText
           className="sidebar-body"
           serializers={serializers}
@@ -40,7 +39,6 @@ const serializers = {
     ),
     group: props => (
       <div className="group">
-        {console.log(props)}
         <PortableText serializers={serializers} blocks={props.node.group} />
       </div>
     ),
