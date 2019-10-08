@@ -13,6 +13,12 @@ import Img from "gatsby-image"
 import * as variable from "../variables"
 
 const SectionBlockStyle = styled.div`
+div:empty {
+   display: none;
+}
+p:empty {
+   display: none;
+}
   #ready {
     background-image: linear-gradient(270deg, #0338a0 0%, #011c5b 100%);
     h2 {
@@ -375,7 +381,75 @@ const SectionBlockStyle = styled.div`
     /* display:none; */
   }
   }
+  #what-included-hero{
+    background-color: rgba(0,7,150,1);
+    .section-container{
+      height:300px;
+    }
+    .react-parallax-bgimage{
+        opacity:0.4;
+      }
+  }
+  #comfy{
+    padding:75px 0px;
+    background-color:#f5f5f5;
+    li{
+          line-height:35px;
+        }
+    h2{
+      text-align:center;
+    }
+    .section-container{
+      background-color:white;
+      width:75%;
+      padding:0px 0px;
+    }
+    .section{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      img{
+        max-width:100%;
+      }
+    }
+    .group{
+      width:calc(50% - 10px);
+      &:nth-child(1){
+        padding:40px 20px;
+      }
+      &:nth-child(3){
+        width:100%;
+        background-image: linear-gradient(180deg, #ba012f 0%, #630018 100%);
+        padding:50px 20px;
+        > div{
+          display:flex;
+        flex-wrap:wrap;
+        justify-content:space-between;
+        }
 
+        ul{
+
+          color:white;
+          width:calc(50% - 10px);
+          padding:0px;
+          li{
+            font-size:18px;
+            list-style:none;
+            line-height:35px;
+            &:before{
+              content:'\f00c';
+              font-family: "Font Awesome 5 Free";
+              margin-right:10px;
+
+            }
+          }
+        }
+      }
+    }
+  }
+  #one-bed{
+    background-color: #f5f5f5;
+  }
 `
 // var openFaq = e => {
 //   console.log('faqclick')
