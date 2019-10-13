@@ -12,12 +12,8 @@ module.exports = {
     url: `https://kcch.sanity.com`,
     mainmenu: [
       {
-        name: "Gallery",
-        link: "/gallery",
-      },
-      {
-        name: "Contact Us",
-        link: "/contact-us",
+        name: "Home",
+        link: "/",
       },
       {
         name: "What’s Included",
@@ -27,14 +23,26 @@ module.exports = {
         name: "FAQs",
         link: "/faqs-corporate-housing-options",
       },
-      // {
-      //   name: "Blog",
-      //   link: "/kansas-city-corporate-housing-blog",
-      // },
+      {
+        name: "Privacy Policy",
+        link: "/privacy-policy",
+      },
       {
         name: "Get Started",
         link: "/get-started-kansas-city-corporate-housing",
       },
+      {
+        name: "Gallery",
+        link: "/gallery",
+      },
+      {
+        name: "Contact Us",
+        link: "/contact-us",
+      },
+      // {
+      //   name: "Blog",
+      //   link: "/kansas-city-corporate-housing-blog",
+      // },
     ],
   },
   plugins: [

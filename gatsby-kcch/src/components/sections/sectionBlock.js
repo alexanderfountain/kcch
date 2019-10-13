@@ -485,6 +485,18 @@ const SectionBlockStyle = styled.div`
     }
   }
   @media (max-width: ${variable.mobileWidth}) {
+    #comfy{
+      .section-container{
+        width:100%;
+        padding:0px 20px;
+      }
+      .section{
+        flex-direction:column;
+        .group{
+          width:100%;
+        }
+      }
+    }
   }
 `
 // var openFaq = e => {
