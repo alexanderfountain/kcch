@@ -13,12 +13,12 @@ import Img from "gatsby-image"
 import * as variable from "../variables"
 
 const SectionBlockStyle = styled.div`
-div:empty {
-   display: none;
-}
-p:empty {
-   display: none;
-}
+  div:empty {
+    display: none;
+  }
+  p:empty {
+    display: none;
+  }
   #ready {
     background-image: linear-gradient(270deg, #0338a0 0%, #011c5b 100%);
     h2 {
@@ -318,15 +318,15 @@ p:empty {
       flex-wrap: wrap;
       justify-content: space-between;
     }
-    .contacter{
+    .contacter {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      form{
-        width:calc(65%);
+      form {
+        width: calc(65%);
       }
-      .contact-info{
-        width:calc(35% - 40px);
+      .contact-info {
+        width: calc(35% - 40px);
       }
     }
     input {
@@ -361,101 +361,136 @@ p:empty {
       color: white;
     }
   }
-  #faq{
-    .group{
-      width:100%;
-      text-align:center;
+  #faq {
+    .group {
+      width: 100%;
+      text-align: center;
     }
-    .section{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:space-between;
+    .section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
-    .faq-section{
-    width:calc(100% / 2 - 40px);
-  }
-  .faq-title{
-    cursor:pointer;
-  }
-  .faq-copy{
-    /* display:none; */
-  }
-  }
-  #what-included-hero{
-    background-color: rgba(0,7,150,1);
-    .section-container{
-      height:300px;
+    .faq-section {
+      width: calc(100% / 2 - 40px);
     }
-    .react-parallax-bgimage{
-        opacity:0.4;
+    .faq-title {
+      cursor: pointer;
+    }
+    .faq-copy {
+      /* display:none; */
+    }
+  }
+  #what-included-hero {
+    background-color: rgba(0, 7, 150, 1);
+    .section-container {
+      height: 300px;
+    }
+    .react-parallax-bgimage {
+      opacity: 0.4;
+    }
+  }
+  #comfy {
+    padding: 75px 0px;
+    background-color: #f5f5f5;
+    li {
+      line-height: 35px;
+    }
+    h2 {
+      text-align: center;
+    }
+    .section-container {
+      background-color: white;
+      width: 75%;
+      padding: 0px 0px;
+    }
+    .section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      img {
+        max-width: 100%;
       }
-  }
-  #comfy{
-    padding:75px 0px;
-    background-color:#f5f5f5;
-    li{
-          line-height:35px;
-        }
-    h2{
-      text-align:center;
     }
-    .section-container{
-      background-color:white;
-      width:75%;
-      padding:0px 0px;
-    }
-    .section{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:space-between;
-      img{
-        max-width:100%;
+    .group {
+      width: calc(50% - 10px);
+      &:nth-child(1) {
+        padding: 40px 20px;
       }
-    }
-    .group{
-      width:calc(50% - 10px);
-      &:nth-child(1){
-        padding:40px 20px;
-      }
-      &:nth-child(3){
-        width:100%;
+      &:nth-child(3) {
+        width: 100%;
         background-image: linear-gradient(180deg, #ba012f 0%, #630018 100%);
-        padding:50px 20px;
-        > div{
-          display:flex;
-        flex-wrap:wrap;
-        justify-content:space-between;
+        padding: 50px 20px;
+        > div {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
         }
 
-        ul{
-
-          color:white;
-          width:calc(50% - 10px);
-          padding:0px;
-          li{
-            font-size:18px;
-            list-style:none;
-            line-height:35px;
-            &:before{
-              content:'\f00c';
+        ul {
+          color: white;
+          width: calc(50% - 10px);
+          padding: 0px;
+          li {
+            font-size: 18px;
+            list-style: none;
+            line-height: 35px;
+            &:before {
+              content: "\f00c";
               font-family: "Font Awesome 5 Free";
-              margin-right:10px;
-
+              margin-right: 10px;
             }
           }
         }
       }
     }
   }
-  #one-bed{
+  #one-bed,
+  #living-features,
+  #bath-features,
+  #extra,
+  #master {
+    color: #54595f;
+    h2 {
+      text-align: center;
+      color: #54595f;
+    }
+    h3 {
+      text-align: center;
+      color: #0338a0;
+    }
+  }
+  #one-bed,
+  #extra,
+  #master {
     background-color: #f5f5f5;
+  }
+  #living-features,
+  #bath-features {
+    background-color: #d6d6d6;
+  }
+  #includes {
+    background-image: linear-gradient(180deg, #ba012f 0%, #630018 100%);
+    color: white;
+    a {
+      color: #a3013c;
+      background-color: #ffffff;
+      font-size: 16px;
+      padding: 15px 30px;
+      -webkit-border-radius: 4px;
+      border-radius: 4px;
+      margin-top: 20px;
+      display: inline-block;
+      font-weight: bold;
+    }
+  }
+  @media (max-width: ${variable.mobileWidth}) {
   }
 `
 // var openFaq = e => {
 //   console.log('faqclick')
 // }
 const serializers = {
-
   types: {
     code: props => (
       <pre data-language={props.node.language}>
@@ -486,16 +521,18 @@ const serializers = {
     ),
 
     faq: props => (
-
       <div className="faq-section">
-                <h2 
-        className={props.node._key + " faq-title"} 
-        onClick={e => {
-          // var clickClass = e
+        <h2
+          className={props.node._key + " faq-title"}
+          onClick={e => {
+            // var clickClass = e
             // console.log(e.target.n);
-        }}>{props.node.title}</h2>
+          }}
+        >
+          {props.node.title}
+        </h2>
         <div className={props.node._key + " faq-copy"}>
-        <PortableText serializers={serializers} blocks={props.node.copy} />
+          <PortableText serializers={serializers} blocks={props.node.copy} />
         </div>
       </div>
     ),
@@ -513,7 +550,6 @@ const serializers = {
 }
 
 class SectionBlockTemplate extends React.Component {
-
   render() {
     const { section } = this.props
     if (
