@@ -327,6 +327,28 @@ const SectionBlockStyle = styled.div`
       }
       .contact-info {
         width: calc(35% - 40px);
+        background-color: #f2f2f2;
+        padding: 0px 20px 20px 20px;
+        i {
+          color: white;
+          background-color: #a3013c;
+          height: 40px;
+          width: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 20px;
+          margin-right: 10px;
+        }
+        a {
+          color: #a3013c;
+          display: flex;
+          align-items: center;
+          margin-top: 30px;
+          .contact-inner-under {
+            color: #0338a0;
+          }
+        }
       }
     }
     input {
@@ -485,15 +507,26 @@ const SectionBlockStyle = styled.div`
     }
   }
   @media (max-width: ${variable.mobileWidth}) {
-    #comfy{
-      .section-container{
-        width:100%;
-        padding:0px 20px;
+    #comfy {
+      .section-container {
+        width: 100%;
+        padding: 0px 20px;
       }
-      .section{
-        flex-direction:column;
-        .group{
-          width:100%;
+      .section {
+        flex-direction: column;
+        .group {
+          width: 100%;
+        }
+      }
+    }
+    #contact {
+      .contacter {
+        form {
+          width: 100%;
+        }
+        .contact-info {
+          width: 100%;
+          margin-top: 40px;
         }
       }
     }
@@ -716,7 +749,45 @@ class SectionBlockTemplate extends React.Component {
                   </form>
                   <div className="contact-info">
                     <h4>CONTACT INFO</h4>
-                    <i class="fa fa-envelope" aria-hidden="true"></i>Email
+                    <a href="mailto:info@kansascitycorporatehousing.com">
+                      <i class="fa fa-envelope" aria-hidden="true"></i>
+                      Email
+                    </a>
+                    <a href="tel:+18448161218">
+                      <i class="fas fa-phone"></i>
+                      <div class="contact-inner-link">
+                        <div>Main Office</div>
+                        <div class="contact-inner-under">844-816-1218</div>
+                      </div>
+                    </a>
+                    <a href="tel:+18448161218">
+                      <i class="fas fa-phone"></i>
+                      <div class="contact-inner-link">
+                        <div>Main Office</div>
+                        <div class="contact-inner-under">844-816-1218</div>
+                      </div>
+                    </a>
+                    <a href="tel:+8162721431">
+                      <i class="fas fa-phone"></i>
+                      <div class="contact-inner-link">
+                        <div>Rich</div>
+                        <div class="contact-inner-under">816-272-1431</div>
+                      </div>
+                    </a>
+                    <a href="tel:+8162826078">
+                      <i class="fas fa-phone"></i>
+                      <div class="contact-inner-link">
+                        <div>Karen</div>
+                        <div class="contact-inner-under">816-282-6078</div>
+                      </div>
+                    </a>
+                    <a href="tel:+8163439978">
+                      <i class="fas fa-phone"></i>
+                      <div class="contact-inner-link">
+                        <div>Scott</div>
+                        <div class="contact-inner-under">816-343-9978</div>
+                      </div>
+                    </a>
                   </div>
                 </div>
               )}
