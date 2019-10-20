@@ -101,6 +101,54 @@ const SectionBlockStyle = styled.div`
       }
     }
   }
+  #get-started {
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      input[type="text"],
+      input[type="email"] {
+        width: calc(100% / 2 - 20px);
+        border: thin solid #7a7a7a;
+        padding: 20px 10px;
+        margin-bottom: 20px;
+      }
+      select {
+        width: calc(100% / 2 - 20px);
+        border: thin solid #7a7a7a;
+        padding: 20px 10px;
+        margin-bottom: 20px;
+      }
+      div {
+        width: calc(100% / 2 - 20px);
+        border: thin solid #7a7a7a;
+        padding: 20px 10px;
+        margin-bottom: 20px;
+      }
+      textarea {
+        width: calc(100% / 2 - 20px);
+        border: thin solid #7a7a7a;
+        padding: 20px 10px;
+        margin-bottom: 20px;
+        height: 100px;
+      }
+      .tentative {
+        display: flex;
+        align-items: center;
+        input {
+          margin-right: 10px;
+        }
+      }
+      .pets {
+        display: flex;
+        align-items: center;
+        input {
+          margin-right: 10px;
+          margin-left: 20px;
+        }
+      }
+    }
+  }
   #rep-contact {
     background-image: linear-gradient(180deg, #ba012f 0%, #630018 100%);
     color: white;
@@ -231,6 +279,23 @@ const SectionBlockStyle = styled.div`
     }
   }
   @media (max-width: ${variable.mobileWidth}) {
+    #get-started {
+      form {
+        input[type="email"],
+        input[type="text"] {
+          width: 100%;
+        }
+        div {
+          width: 100%;
+        }
+        select {
+          width: 100%;
+        }
+        textarea {
+          width: 100%;
+        }
+      }
+    }
     #home-hero,
     #ready {
       .group {
@@ -395,11 +460,11 @@ const SectionBlockStyle = styled.div`
     }
     .faq-section {
       width: calc(100% / 2 - 40px);
-      margin-top:40px;
+      margin-top: 40px;
     }
     .faq-title {
       cursor: pointer;
-      margin-bottom:8px;
+      margin-bottom: 8px;
     }
     .faq-copy {
       /* display:none; */
@@ -510,15 +575,15 @@ const SectionBlockStyle = styled.div`
   }
   @media (max-width: ${variable.mobileWidth}) {
     #faq {
-    .section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      flex-direction:column;
-      .faq-section{
-        width:100%;
+      .section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        flex-direction: column;
+        .faq-section {
+          width: 100%;
+        }
       }
-    }
     }
     #comfy {
       .section-container {
@@ -537,8 +602,8 @@ const SectionBlockStyle = styled.div`
         form {
           width: 100%;
         }
-        .form-group{
-          width:100%;
+        .form-group {
+          width: 100%;
         }
         .contact-info {
           width: 100%;
@@ -749,7 +814,6 @@ class SectionBlockTemplate extends React.Component {
                     </div>
                     <div class="form-group">
                       <textarea
-                        type="textarea"
                         name="message"
                         id="message"
                         class="form-control"
@@ -807,14 +871,14 @@ class SectionBlockTemplate extends React.Component {
                   </div>
                 </div>
               )}
-              {section.sectionid == "get-started" &&(
+              {section.sectionid == "get-started" && (
                 <form
-                name={section.sectionid}
-                method="post"
-                netlify-honeypot="bot-field"
-                data-netlify="true"
-              >
-                <input
+                  name={section.sectionid}
+                  method="post"
+                  netlify-honeypot="bot-field"
+                  data-netlify="true"
+                >
+                  <input
                     type="hidden"
                     name="form-name"
                     value={section.sectionid}
@@ -824,8 +888,118 @@ class SectionBlockTemplate extends React.Component {
                       Don’t fill this out: <input name="bot-field" />
                     </label>
                   </p>
-                  <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name"/>
-                  <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name"/>
+                  <input
+                    type="text"
+                    name="firstname"
+                    id="firstname"
+                    class="form-control"
+                    placeholder="First Name"
+                  />
+                  <input
+                    type="text"
+                    name="lastname"
+                    id="lastname"
+                    class="form-control"
+                    placeholder="Last Name"
+                  />
+                  <input
+                    type="text"
+                    name="companyname"
+                    id="companyname"
+                    class="form-control"
+                    placeholder="Company"
+                  />
+                  <input
+                    type="text"
+                    name="address1"
+                    id="address1"
+                    class="form-control"
+                    placeholder="Address 1"
+                  />
+                  <input
+                    type="text"
+                    name="address2"
+                    id="address2"
+                    class="form-control"
+                    placeholder="Address 2"
+                  />
+                  <input
+                    type="text"
+                    name="city"
+                    id="city"
+                    class="form-control"
+                    placeholder="City"
+                  />
+                  <select name="state" id="state">
+                    <option value="" selected="selected">
+                      Select a State
+                    </option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                  </select>
+                  <input
+                    type="text"
+                    name="zip"
+                    id="zip"
+                    class="form-control"
+                    placeholder="Zip"
+                  />
+                  <input
+                    type="text"
+                    name="primaryphone"
+                    id="primaryphone"
+                    class="form-control"
+                    placeholder="Primary Phone"
+                  />
                   <input
                     type="email"
                     name="email"
@@ -835,9 +1009,256 @@ class SectionBlockTemplate extends React.Component {
                     data-interactive="true"
                     placeholder="E-Mail"
                   />
-                  <input type="textarea" name="message" id="message" class="form-control" placeholder="Message"/>
+                  <select
+                    id="edit-submitted-preferred-method-of-contact"
+                    name="preferred_method_of_contact"
+                    class="form-select"
+                  >
+                    <option value="" selected="selected">
+                      - Preferred method of contact -
+                    </option>
+                    <option value="phone">Phone</option>
+                    <option value="email">E-Mail</option>
+                    <option value="nopreference">Either Way</option>
+                  </select>
+                  <select
+                    id="edit-submitted-in-what-city-are-you-looking-for-corporate-housing"
+                    name="in_what_city_are_you_looking_for_corporate_housing"
+                    class="form-select"
+                  >
+                    <option value="stlouis">General St. Louis Area</option>
+                    <option value="downtown">Downtown</option>
+                    <option value="south">South Area (General)</option>
+                    <option value="west">West Area (General)</option>
+                    <option value="chesterfield">Chesterfield</option>
+                    <option value="clayton">Clayton</option>
+                    <option value="st_charles">St. Charles</option>
+                    <option value="cwe">Central West End</option>
+                    <option value="ucity">University City</option>
+                    <option value="marylandheights">Maryland Heights</option>
+                    <option value="crevecouer">Creve Coeur</option>
+                    <option value="webster">Webster</option>
+                    <option value="kirkwood">Kirkwood</option>
+                    <option value="ofallonil">O'Fallon, Illinois</option>
+                    <option value="offallonmo">O'Fallon, Missouri</option>
+                    <option value="edwardsville">Edwardsville</option>
+                    <option value="wentzville">Wentzville</option>
+                    <option value="other">Other</option>
+                    <option value="unsure">Unsure</option>
+                  </select>
+                  <select
+                    class="month form-select"
+                    required="required"
+                    id="edit-submitted-estimated-move-in-date-month"
+                    name="submitted[estimated_move_in_date][month]"
+                  >
+                    <option value="" selected="selected">
+                      Month
+                    </option>
+                    <option value="1">Jan</option>
+                    <option value="2">Feb</option>
+                    <option value="3">Mar</option>
+                    <option value="4">Apr</option>
+                    <option value="5">May</option>
+                    <option value="6">Jun</option>
+                    <option value="7">Jul</option>
+                    <option value="8">Aug</option>
+                    <option value="9">Sep</option>
+                    <option value="10">Oct</option>
+                    <option value="11">Nov</option>
+                    <option value="12">Dec</option>
+                  </select>
+                  <select
+                    class="day form-select"
+                    required="required"
+                    id="edit-submitted-estimated-move-in-date-day"
+                    name="submitted[estimated_move_in_date][day]"
+                  >
+                    <option value="" selected="selected">
+                      Day
+                    </option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                  </select>
+                  <select
+                    class="year form-select"
+                    required="required"
+                    id="edit-submitted-estimated-move-in-date-year"
+                    name="submitted[estimated_move_in_date][year]"
+                  >
+                    <option value="" selected="selected">
+                      Year
+                    </option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                  </select>
+                  <div className="tentative">
+                    <input
+                      type="checkbox"
+                      name="dates-tentative-1"
+                      value="yes"
+                    />
+                    <span>
+                      I am unsure of my length of stay. The dates above are
+                      tentative.
+                    </span>
+                  </div>
+                  <select
+                    id="edit-submitted-size-of-unit-needed"
+                    name="submitted[size_of_unit_needed]"
+                    class="form-select"
+                  >
+                    <option value="" selected="selected">
+                      - Size of Unit Needed? -
+                    </option>
+                    <option value="s">Studio or smallest available</option>
+                    <option value="1">1 bedroom</option>
+                    <option value="2">2 bedroom</option>
+                    <option value="3">3 bedroom</option>
+                  </select>
+                  <input
+                    type="text"
+                    name="units"
+                    id="units"
+                    class="form-control"
+                    placeholder="Number of Units Needed?"
+                  />
+                  <select
+                    id="edit-submitted-is-there-a-budget-that-you-need-to-stay-within"
+                    name="submitted[is_there_a_budget_that_you_need_to_stay_within]"
+                    class="form-select"
+                  >
+                    <option value="" selected="selected">
+                      - None -
+                    </option>
+                    <option value="2100-2399">$2,100-$2,399</option>
+                    <option value="2400-2699">$2,400-$2,699</option>
+                    <option value="2700-2999">$2,700-$2,999</option>
+                    <option value="3000-3299">$3,000-$3,299</option>
+                    <option value="3300-3599">$3,300-$3,599</option>
+                    <option value="3600">$3,600+</option>
+                  </select>
+                  <input
+                    type="text"
+                    name="adults"
+                    id="adults"
+                    class="form-control"
+                    placeholder="Number of Adults"
+                  />
+                  <input
+                    type="text"
+                    name="children"
+                    id="children"
+                    class="form-control"
+                    placeholder="Number of Children"
+                  />
+                  <div className="pets">
+                    Any Pets?
+                    <input
+                      type="radio"
+                      id="anypets"
+                      name="anypets"
+                      value="yes"
+                      checked
+                    />
+                    <span>Yes</span>
+                    <input
+                      type="radio"
+                      id="anypets"
+                      name="anypets"
+                      value="no"
+                      checked
+                    />
+                    <span>No</span>
+                  </div>
+
+                  <textarea
+                    name="message"
+                    id="message"
+                    class="form-control"
+                    placeholder="If yes please enter the type, breed, number, and weight of each"
+                  />
+                  <textarea
+                    name="reside"
+                    id="reside"
+                    class="form-control"
+                    placeholder="Is there an area of town where you would like to reside?"
+                  />
+                  <select
+                    id="edit-submitted-what-is-the-most-important-factor-in-your-selection"
+                    name="submitted[what_is_the_most_important_factor_in_your_selection]"
+                    class="form-select"
+                  >
+                    <option value="" selected="selected">
+                      - What will be the most important factor in your
+                      selection? -
+                    </option>
+                    <option value="price">Price</option>
+                    <option value="proximity">
+                      Proximity to a Location (please specify below)
+                    </option>
+                    <option value="area">
+                      Area of Town (please specify below)
+                    </option>
+                    <option value="downtown">
+                      Being Close to Downtown St. Louis
+                    </option>
+                    <option value="center">Being in a central location</option>
+                    <option value="suburbs">
+                      Being in a suburban location
+                    </option>
+                  </select>
+                  <textarea
+                    name="reside"
+                    id="reside"
+                    class="form-control"
+                    placeholder="Questions/Comments"
+                  />
+                  <select
+                    id="edit-submitted-how-did-you-hear-about-us"
+                    name="submitted[how_did_you_hear_about_us]"
+                    class="form-select"
+                  >
+                    <option value="">How did you hear about us?</option>
+                    <option value="google">Google Search</option>
+                    <option value="bing">Bing Search</option>
+                    <option value="yahoo">Yahoo Search</option>
+                    <option value="individual">Referred by Individual</option>
+                    <option value="property">Referred by Property</option>
+                    <option value="other">Other</option>
+                  </select>
                   <button type="submit" class="btn btn-submit">
-                    Send Message
+                    Submit
                   </button>
                 </form>
               )}
