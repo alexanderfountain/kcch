@@ -44,7 +44,7 @@ const MobileContainer = styled.div`
       padding: 0px;
     }
   }
-  @media (max-width: ${variable.mobileWidth}) {
+  @media (max-width: ${variable.tabletWidth}) {
     display: block;
     .bm-menu-wrap {
       top: 0px;

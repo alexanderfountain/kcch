@@ -97,6 +97,7 @@ const HeaderStyle = styled.header`
       }
       .main-menu {
         width: calc(100% - 210px);
+        display:none;
         li {
           margin-right: 15px;
           a {

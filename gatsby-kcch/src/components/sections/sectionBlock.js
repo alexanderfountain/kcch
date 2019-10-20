@@ -395,9 +395,11 @@ const SectionBlockStyle = styled.div`
     }
     .faq-section {
       width: calc(100% / 2 - 40px);
+      margin-top:40px;
     }
     .faq-title {
       cursor: pointer;
+      margin-bottom:8px;
     }
     .faq-copy {
       /* display:none; */
@@ -507,6 +509,17 @@ const SectionBlockStyle = styled.div`
     }
   }
   @media (max-width: ${variable.mobileWidth}) {
+    #faq {
+    .section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      flex-direction:column;
+      .faq-section{
+        width:100%;
+      }
+    }
+    }
     #comfy {
       .section-container {
         width: 100%;
@@ -523,6 +536,9 @@ const SectionBlockStyle = styled.div`
       .contacter {
         form {
           width: 100%;
+        }
+        .form-group{
+          width:100%;
         }
         .contact-info {
           width: 100%;
@@ -790,6 +806,40 @@ class SectionBlockTemplate extends React.Component {
                     </a>
                   </div>
                 </div>
+              )}
+              {section.sectionid == "get-started" &&(
+                <form
+                name={section.sectionid}
+                method="post"
+                netlify-honeypot="bot-field"
+                data-netlify="true"
+              >
+                <input
+                    type="hidden"
+                    name="form-name"
+                    value={section.sectionid}
+                  />
+                  <p hidden>
+                    <label htmlFor="bot-field">
+                      Don’t fill this out: <input name="bot-field" />
+                    </label>
+                  </p>
+                  <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name"/>
+                  <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name"/>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="form-control"
+                    data-required="true"
+                    data-interactive="true"
+                    placeholder="E-Mail"
+                  />
+                  <input type="textarea" name="message" id="message" class="form-control" placeholder="Message"/>
+                  <button type="submit" class="btn btn-submit">
+                    Send Message
+                  </button>
+                </form>
               )}
               {form == true && (
                 <form
