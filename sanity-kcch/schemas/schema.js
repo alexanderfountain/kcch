@@ -13,6 +13,7 @@ import group from "./group";
 import testimonial from "./testimonial";
 import imagelink from "./imagelink";
 import gallery from "./gallery";
+import property from "./property";
 import faq from "./faq";
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -31,6 +32,7 @@ export default createSchema({
     testimonial,
     imagelink,
     gallery,
-    faq
-  ])
+    property,
+    faq,
+  ]),
 });

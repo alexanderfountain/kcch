@@ -1,21 +1,11 @@
 export default {
-  name: "landing",
-  title: "Landing",
+  name: "property",
+  title: "Property",
   type: "document",
   fields: [
     {
       name: "title",
       title: "Title",
-      type: "string",
-    },
-    {
-      title: "Hide Title",
-      name: "hidetitle",
-      type: "boolean",
-    },
-    {
-      name: "pageid",
-      title: "Page ID",
       type: "string",
     },
     {
@@ -41,15 +31,9 @@ export default {
       type: "blockContent",
     },
     {
-      title: "Sections",
-      name: "sections",
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "sectionblock" }, { type: "sectionentitylist" }],
-        },
-      ],
+      name: "body",
+      title: "Body",
+      type: "blockContent",
     },
   ],
   preview: {
