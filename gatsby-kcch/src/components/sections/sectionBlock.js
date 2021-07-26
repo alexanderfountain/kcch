@@ -715,7 +715,14 @@ const serializers = {
 class SectionBlockTemplate extends React.Component {
   render() {
     const { section } = this.props
-    console.log(section.propertyList)
+    var bgimage = null
+    if (section.backgroundimage) {
+      if (section.backgroundimage.asset) {
+        bgimage = section.backgroundimage.asset
+        console.log(bgimage)
+      }
+    }
+    console.log(bgimage)
     if (
       section.sectionid == "flex-lease" ||
       section.sectionid == "rep-contact" ||
@@ -727,10 +734,10 @@ class SectionBlockTemplate extends React.Component {
     return (
       <SectionBlockStyle>
         <div id={section.sectionid}>
-          {section.backgroundimage ? (
+          {bgimage ? (
             <Parallax
-              bgImage={section.backgroundimage.asset.fluid.src}
-              bgImageSrcSet={section.backgroundimage.asset.fluid.srcSet}
+              bgImage={bgimage.fluid.src}
+              bgImageSrcSet={bgimage.fluid.srcSet}
               bgImageAlt="section bg"
               strength={300}
             >
