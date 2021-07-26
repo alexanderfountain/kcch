@@ -63,7 +63,7 @@ export const Footer = () => {
   return (
     <FooterStyle>
       <Container>
-        <div>Copyright © 2019 Kansas City Corporate Housing</div>
+        <div>Copyright © 2021 Kansas City Corporate Housing</div>
       </Container>
     </FooterStyle>
   )
