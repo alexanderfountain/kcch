@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
-import PortableText from "@sanity/block-content-to-react"
+import PortableText, { propTypes } from "@sanity/block-content-to-react"
 import BackgroundImage from "gatsby-background-image"
 import Container from "../container"
 import { Parallax, Background } from "react-parallax"
@@ -612,10 +612,47 @@ const SectionBlockStyle = styled.div`
       }
     }
   }
+  .property-list-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .property-list {
+    width: calc(100% / 3 - 14px);
+    margin-right: 20px;
+    margin-bottom: 40px;
+    &:nth-child(3n + 3) {
+      margin-right: 0px;
+    }
+    h3 {
+      margin: 5px 0px;
+    }
+    img {
+      max-width: 100% !important;
+      height: auto;
+      position: relative !important;
+    }
+    @media (max-width: ${variable.tabletWidth}) {
+      width: calc(100% / 2 - 10px);
+      margin-right: 20px;
+      margin-bottom: 40px;
+      &:nth-child(3n + 3) {
+        margin-right: 20px;
+      }
+      &:nth-child(2n + 2) {
+        margin-right: 0px;
+      }
+    }
+    @media (max-width: ${variable.mobileWidth}) {
+      width: calc(100%);
+      margin-bottom: 40px;
+      margin-right: 0px !important;
+    }
+  }
 `
 // var openFaq = e => {
 //   console.log('faqclick')
 // }
+
 const serializers = {
   types: {
     code: props => (
@@ -678,6 +715,7 @@ const serializers = {
 class SectionBlockTemplate extends React.Component {
   render() {
     const { section } = this.props
+    console.log(section.propertyList)
     if (
       section.sectionid == "flex-lease" ||
       section.sectionid == "rep-contact" ||
@@ -743,12 +781,29 @@ class SectionBlockTemplate extends React.Component {
             </Parallax>
           ) : (
             <Container className="section-container">
+              <h2>{section.title}</h2>
               <PortableText
                 className="section"
                 serializers={serializers}
                 blocks={section._rawSectionblock}
                 this={this}
               />
+              {section.propertyList && (
+                <div className="property-list-container">
+                  {section.propertyList.map((property, index) => (
+                    <div className="property-list">
+                      {property.mainimage && (
+                        <img src={property.mainimage.asset.fixed.src} />
+                      )}
+
+                      <h3>{property.title}</h3>
+                      <div>
+                        <Link to={property.slug.current}>Read More</Link>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
               {section.sectionid == "contact" && (
                 <div className="contacter">
                   <form

@@ -6,30 +6,30 @@ export default {
     {
       name: "title",
       title: "Title",
-      type: "string"
+      type: "string",
     },
     {
       title: "Hide Title",
       name: "hidetitle",
-      type: "boolean"
+      type: "boolean",
     },
     {
       name: "sectionid",
       title: "Section ID",
-      type: "string"
+      type: "string",
     },
     {
       name: "backgroundimage",
       title: "Background Image",
       type: "image",
       options: {
-        hotspot: true
-      }
+        hotspot: true,
+      },
     },
     {
       title: "Background Color",
       name: "backgroundcolor",
-      type: "string"
+      type: "string",
     },
     {
       title: "Entity Type",
@@ -40,25 +40,26 @@ export default {
           { title: "News", value: "news" },
           { title: "Blog", value: "blog" },
           { title: "Testimonial", value: "testimonial" },
-          { title: "Gallery", value: "gallery" }
-        ]
-      }
+          { title: "Gallery", value: "gallery" },
+          { title: "Landing", value: "landing" },
+        ],
+      },
     },
     {
       title: "Number to display",
       name: "displaynumber",
-      type: "number"
-    }
+      type: "number",
+    },
   ],
   preview: {
     select: {
-      title: "title"
+      title: "title",
     },
     prepare(selection) {
       const { title } = selection;
       return Object.assign({}, selection, {
-        title: title
+        title: title,
       });
-    }
-  }
+    },
+  },
 };

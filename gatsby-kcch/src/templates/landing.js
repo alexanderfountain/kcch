@@ -122,6 +122,32 @@ export const query = graphql`
               }
             }
             _rawSectionblock(resolveReferences: { maxDepth: 10 })
+            title
+            propertyList {
+              slug {
+                current
+              }
+              teaser {
+                sanityChildren {
+                  text
+                }
+              }
+              title
+              mainimage {
+                asset {
+                  fixed(width: 600, height: 450) {
+                    aspectRatio
+                    base64
+                    height
+                    src
+                    srcSet
+                    srcSetWebp
+                    srcWebp
+                    width
+                  }
+                }
+              }
+            }
           }
           ... on SanitySectionentitylist {
             sectionid

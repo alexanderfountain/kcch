@@ -6,41 +6,52 @@ export default {
     {
       name: "title",
       title: "Title",
-      type: "string"
+      type: "string",
     },
     {
       name: "sectionid",
       title: "Section ID",
-      type: "string"
+      type: "string",
     },
     {
       name: "backgroundimage",
       title: "Background Image",
       type: "image",
       options: {
-        hotspot: true
-      }
+        hotspot: true,
+      },
     },
     {
       title: "Background Color",
       name: "backgroundcolor",
-      type: "string"
+      type: "string",
     },
     {
       name: "sectionblock",
       title: "Section Block",
-      type: "blockContent"
-    }
+      type: "blockContent",
+    },
+    {
+      title: "Property List",
+      name: "propertyList",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "landing" }],
+        },
+      ],
+    },
   ],
   preview: {
     select: {
-      title: "title"
+      title: "title",
     },
     prepare(selection) {
       const { title } = selection;
       return Object.assign({}, selection, {
-        title: title
+        title: title,
       });
-    }
-  }
+    },
+  },
 };
